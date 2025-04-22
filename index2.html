@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AOS Test</title>
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 200vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="height: 80vh; background-color: #eee"></div>
+
+    <div
+      data-aos="fade-up"
+      data-aos-once="true"
+      style="padding: 50px; background-color: #4caf50; color: white"
+    >
+      Elemen ini akan fade-up saat discroll
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true });
+    </script>
+  </body>
+</html>
