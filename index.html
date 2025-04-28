@@ -1,794 +1,601 @@
 <!DOCTYPE html>
 <html class="scroll-smooth ">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./src/output.css" rel="stylesheet" />
-    <script> 
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage)&&window.matchMedia('(prefers-color-scheme:dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      }else{
-        document.documentElement.classList.remove('dark');
-      }
-    </script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  </head>
-  <body>
-    <!-- Navbar Section Start -->
-    <header
-      class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10"
-    >
-      <div class="container">
-        <div class="flex item-center justify-between relative">
-          <!-- Logo Start -->
-          <div class="px-4" data-aos="zoom-in" data-aos-duration="800" >
-            <a
-              href="#home"
-              class="font-bold text-xl text-primary block py-4 hover:text-secondary"
-            >
-              <span class="text-dark dark:text-slate-100 hover:text-secondary">My </span
-              >Portofolio</a
-            >
-          </div>
-          <!-- Logo end -->
-           <!-- Hamburger menu Start -->
-          <div class="flex item-center px-4">
-            <button
-              id="hamburger"
-              name="hamburger"
-              type="button"
-              class="block absolute py-3 right-4 lg:hidden"
-            >
-              <span
-                class="hamburger-line transition duration-300 ease-in-out origin-top-left"
-              ></span>
-              <span
-                class="hamburger-line transition duration-300 ease-in-out"
-              ></span>
-              <span
-                class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"
-              ></span>
-            </button>
-            <!-- Hamburger Menu End -->
-             <!-- Nav Menu Start -->
-            <nav
-            data-aos="fade-left"
-            data-aos-duration="1000"
-              id="nav-menu"
-              class="hidden absolute py-5 dark:bg-slate-800 dark:lg:bg-transparent bg-slate-100 shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none"
-            >
-              <ul  class="block lg:flex">
-                <li  class="group">
-                  <a
-                    href="#home"
-                    class="text-base py-2 mx-8 text-dark flex group-hover:text-primary dark:text-white"
-                    >Beranda</a
-                  >
-                </li>
-                <li  class="group">
-                  <a
-                    href="#about"
-                    class="text-base py-2 mx-8 text-dark flex group-hover:text-primary dark:text-white"
-                    >Tentang Saya</a
-                  >
-                </li>
-                <li  class="group">
-                  <a
-                    href="#portofolio"
-                    class="text-base py-2 mx-8 text-dark flex group-hover:text-primary dark:text-white"
-                    >Portofolio</a
-                  >
-                </li>
-                <li  class="group">
-                  <a
-                    href="#clients"
-                    class="text-base py-2 mx-8 text-dark flex group-hover:text-primary dark:text-white"
-                    >Clients</a
-                  >
-                </li>
-                <li  class="group">
-                  <a
-                    href="#blog"
-                    class="text-base py-2 mx-8 text-dark flex group-hover:text-primary dark:text-white"
-                    >Blog Saya</a
-                  >
-                </li>
-                <li  class="group">
-                  <a
-                    href="#contact"
-                    class="text-base py-2 mx-8 text-dark flex group-hover:text-primary dark:text-white"
-                    >Hubungi Saya</a
-                  >
-                </li>
-                <li  class="flex mt-3 lg:mt-0 items-center pl-8">
-                  <div class="flex">
-                    <span class="mr-2 text-sm text-slate-500">Light</span>
-                    <input type="checkbox" id="dark-toggle" class="hidden">
-                    <label for="dark-toggle">
-                      <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
-                        <div class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/output.css">
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navbar Section Start -->
+  <header class="bg-transparent absolute top-0 left-0 w-full flex  items-center">
+    <div class="container">
+      <div class="flex items-center justify-between relative">
+        <!-- Logo Start -->
+        <div class="px-4" data-aos="zoom-in" data-aos-duration="800">
+          <a href="#home" class="font-bold text-xl text-primary block py-4 hover:text-secondary">
+            <span class="text-dark dark:text-slate-100 hover:text-secondary">My </span>Portofolio</a>
+        </div>
+        <!-- Logo end -->
+        <!-- Hamburger menu Start -->
+        <div class="flex items-center px-4">
+          <button id="hamburger" name="hamburger" type="button" class="block absolute py-3 right-4 lg:hidden">
+            <span class="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
+            <span class="hamburger-line transition duration-300 ease-in-out"></span>
+            <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
+          </button>
+          <!-- Hamburger Menu End -->
+          <!-- Nav Menu Start -->
+          <nav data-aos="fade-left" data-aos-duration="1000" id="nav-menu"
+            class="hidden absolute py-5 dark:bg-slate-800 dark:lg:bg-transparent bg-slate-100 shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none z-40">
+            <ul class="block lg:flex">
+              <li class="group">
+                <a href="#home"
+                  class="text-base py-2 mx-8 text-dark flex group-hover:text-primary dark:text-white">Beranda</a>
+              </li>
+              <li class="group">
+                <a href="#about"
+                  class="text-base py-2 mx-8 text-dark flex group-hover:text-primary dark:text-white">Tentang Saya</a>
+              </li>
+              <li class="group">
+                <a href="#portofolio"
+                  class="text-base py-2 mx-8 text-dark flex group-hover:text-primary dark:text-white">Portofolio</a>
+              </li>
+              <li class="group">
+                <a href="#clients"
+                  class="text-base py-2 mx-8 text-dark flex group-hover:text-primary dark:text-white">Clients</a>
+              </li>
+              <li class="group">
+                <a href="#blog" class="text-base py-2 mx-8 text-dark flex group-hover:text-primary dark:text-white">Blog
+                  Saya</a>
+              </li>
+              <li class="group">
+                <a href="#contact"
+                  class="text-base py-2 mx-8 text-dark flex group-hover:text-primary dark:text-white">Hubungi Saya</a>
+              </li>
+              <li class="flex mt-3 lg:mt-0 items-center pl-8">
+                <div class="flex">
+                  <span class="mr-2 text-sm text-slate-500">Light</span>
+                  <input type="checkbox" id="dark-toggle" class="hidden">
+                  <label for="dark-toggle">
+                    <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+                      <div class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out">
                       </div>
-                    </label>
-                    <span class="ml-2 text-sm text-slate-500">Dark</span>
-                  </div>
-                </li>
-              </ul>
-            </nav>
-            <!-- Nav Menu -->
-          </div>
+                    </div>
+                  </label>
+                  <span class="ml-2 text-sm text-slate-500">Dark</span>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <!-- Nav Menu -->
         </div>
       </div>
-    </header>
-    <!-- Navbar Section end -->
-    <!-- Hero Section Start -->
-    <section id="home" class="pt-36 dark:bg-dark  bg-white ">
-      <div class="container">
-        <div class="flex flex-wrap">
-          <div data-aos="fade-right" data-aos-duration="2000" class="w-full lg:w-1/2 self-center px-4">
-            <h1 class="text-base font-semibold text-primary md:text-xl">
-              Hallo semua👋, perkenalkan saya
-              <span
-                class="block font-bold text-4xl  dark:text-slate-100 text-dark dark:hover:text-primary hover:text-primary lg:text-5xl"
-                >Muchtar Rohman</span
-              >
-            </h1>
-            <h2 class="text-secondary font-medium text-lg mb-5 dark:text-slate-100">
-              Information System Bachelor Student
-            </h2>
-            <p class="text-secondary mb-10 leading-relaxed font-normal">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum
-              tenetur ?
-            </p>
-            <a
-              href="#contact"
-              class="text-base font-semibold text-white bg-teal-500 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out"
-              >Hubungi Saya</a
-            >
-          </div>
-          <div  data-aos="zoom-in" data-aos-duration="2000" class="w-full lg:w-1/2 self-end px-4 lg:mt-9 lg:right-0 mb-8">
-            <div class="relative mt-10">
-              <img
-                src="assets/hero/DSCF8700-removebg-preview.png"
-                alt="Muchtar Rohman"
-                class="max-w-full mx-auto relative z-10"
-              />
-              <span class="absolute -bottom-0  left-1/2 -translate-x-1/2">
-                <svg
-                  width="300"
-                  height="300"
-                  viewBox="0 0 200 200"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="#14B8A6"
-                    d="M38.7,-54.2C49.2,-45.7,55.8,-33,61.1,-19.3C66.3,-5.6,70,9.2,
+    </div>
+  </header>
+  <!-- Navbar Section end -->
+  <!-- Hero Section Start -->
+  <section id="home" class="pt-36 dark:bg-dark  bg-white ">
+    <div class="container">
+      <div class="flex flex-wrap">
+        <div data-aos="fade-right" data-aos-duration="2000" class="w-full lg:w-1/2 self-center px-4">
+          <h1 class="text-base font-semibold text-primary md:text-xl">
+            Hallo semua👋, perkenalkan saya
+            <span
+              class="block font-bold text-4xl  dark:text-slate-100 text-dark dark:hover:text-primary hover:text-primary lg:text-5xl">Muchtar
+              Rohman</span>
+          </h1>
+          <h2 class="text-secondary font-medium text-lg mb-5 dark:text-slate-100">
+            Information System Bachelor Student
+          </h2>
+          <p class="text-secondary mb-10 leading-relaxed font-normal">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum
+            tenetur ?
+          </p>
+          <a href="#contact"
+            class="text-base font-semibold text-white bg-teal-500 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out">Hubungi
+            Saya</a>
+        </div>
+        <div data-aos="zoom-in" data-aos-duration="2000" class="w-full lg:w-1/2 self-end px-4 lg:mt-9 lg:right-0 mb-8">
+          <div class="relative mt-10">
+            <img src="assets/hero/DSCF8700-removebg-preview.png" alt="Muchtar Rohman"
+              class="max-w-full mx-auto relative z-10" />
+            <span class="absolute -bottom-0  left-1/2 -translate-x-1/2">
+              <svg width="300" height="300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#14B8A6" d="M38.7,-54.2C49.2,-45.7,55.8,-33,61.1,-19.3C66.3,-5.6,70,9.2,
                     67.4,23.3C64.8,37.4,55.7,50.8,43.4,58.2C31.1,65.5,15.6,66.8,1,65.4C-13.5,64,-27,59.9,
                     -40.5,52.9C-53.9,45.9,-67.3,36.1,-70.6,23.5C-73.8,11,-66.9,-4.2,-61.5,-19.8C-56.2,-35.3,
                     -52.4,-51.1,-42.4,-59.7C-32.4,-68.3,-16.2,-69.6,-1,-68.2C14.2,-66.8,28.3,-62.6,38.7,-54.2Z"
-                    transform="translate(100 100) scale(1.1)"
-                  />
-                </svg>
-              </span>
-            </div>
+                  transform="translate(100 100) scale(1.1)" />
+              </svg>
+            </span>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Hero Section End -->
-    <!-- About Section Start -->
-    <section id="about" class="pt-36 pb-32 bg-slate-100 dark:bg-slate-800">
-      <div class="container">
-        <div class="flex flex-wrap">
-          <div  class="w-full px-4 mb-10 lg:w-1/2">
-            <h4 data-aos="fade-up" data-aos-duration="1000" class="text-primary font-bold uppercase text-lg mb-3">
-              Tentang Saya
-            </h4>
-            <h2 data-aos="fade-up" data-aos-duration="1000" class="font-bold dark:text-white text-dark text-3xl mb-5 max-w-md lg:text-4xl">
-              Bercita - cita Menjadi Programmer
-            </h2>
-            <p data-aos="fade-up" data-aos-duration="1000" class="font-medium text-base dark:text-slate-200 text-secondary max-w-xl lg:text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
-              possimus consequatur laboriosam molestiae earum? Repudiandae.
-            </p>
-          </div>
-          <div class="w-full px-4 lg:w-1/2">
-            <h3 data-aos="fade-up" data-aos-duration="1000"
-              class="font-semibold text-2xl dark:text-white text-dark mb-4 lg:text-3xl lg:pt-10"
-            >
-              Mari Berteman
-            </h3>
-            <p data-aos="fade-up" data-aos-duration="1000" class="font-medium text-base dark:text-slate-200 text-secondary mb-6 lg:text-lg">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt
-              cumque omnis, temporibus aperiam corporis officiis.
-            </p>
-            <div data-aos="fade-up" data-aos-duration="1000" class="flex item-center">
-              <!-- Youtube -->
-              <a
-                href="#"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white"
-              >
-                <svg
-                  class="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  width="30"
-                  height="30"
-                  viewBox="0 0 50 50"
-                >
-                  <title>Youtube</title>
-                  <path
-                    d="M 44.898438 14.5 C 44.5 12.300781 42.601563 10.699219 40.398438 10.199219 C 37.101563 9.5 31 9 24.398438 9 C 17.800781 9 11.601563 9.5 8.300781 10.199219 C 6.101563 10.699219 4.199219 12.199219 3.800781 14.5 C 3.398438 17 3 20.5 3 25 C 3 29.5 3.398438 33 3.898438 35.5 C 4.300781 37.699219 6.199219 39.300781 8.398438 39.800781 C 11.898438 40.5 17.898438 41 24.5 41 C 31.101563 41 37.101563 40.5 40.601563 39.800781 C 42.800781 39.300781 44.699219 37.800781 45.101563 35.5 C 45.5 33 46 29.398438 46.101563 25 C 45.898438 20.5 45.398438 17 44.898438 14.5 Z M 19 32 L 19 18 L 31.199219 25 Z"
-                  ></path>
-                </svg>
-              </a>
-              <!-- Instagram -->
-              <a
-                href="#"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white"
-              >
-                <svg
-                  width="25"
-                  class="fill-current"
-                  height="25"
-                  role="img"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Instagram</title>
-                  <path
-                    d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"
-                  />
-                </svg>
-              </a>
-              <!-- Twitter -->
-              <a
-                href="#"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white"
-              >
-                <svg
-                  width="20"
-                  class="fill-current"
-                  role="img"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>X</title>
-                  <path
-                    d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
-                  />
-                </svg>
-              </a>
-              <!-- GitHub -->
-              <a
-                href="#"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white"
-              >
-                <svg
-                  width="25"
-                  class="fill-current"
-                  role="img"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>GitHub</title>
-                  <path
-                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-                  />
-                </svg>
-              </a>
-              <!-- Linked In -->
-              <a
-                href="#"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white"
-              >
-                <svg
-                  width="25"
-                  class="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  width="100"
-                  height="100"
-                  viewBox="0 0 50 50"
-                >
-                  <title>LinkedIn</title>
-                  <path
-                    d="M 9 4 C 6.2504839 4 4 6.2504839 4 9 L 4 41 C 4 43.749516 6.2504839 46 9 46 L 41 46 C 43.749516 46 46 43.749516 46 41 L 46 9 C 46 6.2504839 43.749516 4 41 4 L 9 4 z M 9 6 L 41 6 C 42.668484 6 44 7.3315161 44 9 L 44 41 C 44 42.668484 42.668484 44 41 44 L 9 44 C 7.3315161 44 6 42.668484 6 41 L 6 9 C 6 7.3315161 7.3315161 6 9 6 z M 14 11.011719 C 12.904779 11.011719 11.919219 11.339079 11.189453 11.953125 C 10.459687 12.567171 10.011719 13.484511 10.011719 14.466797 C 10.011719 16.333977 11.631285 17.789609 13.691406 17.933594 A 0.98809878 0.98809878 0 0 0 13.695312 17.935547 A 0.98809878 0.98809878 0 0 0 14 17.988281 C 16.27301 17.988281 17.988281 16.396083 17.988281 14.466797 A 0.98809878 0.98809878 0 0 0 17.986328 14.414062 C 17.884577 12.513831 16.190443 11.011719 14 11.011719 z M 14 12.988281 C 15.392231 12.988281 15.94197 13.610038 16.001953 14.492188 C 15.989803 15.348434 15.460091 16.011719 14 16.011719 C 12.614594 16.011719 11.988281 15.302225 11.988281 14.466797 C 11.988281 14.049083 12.140703 13.734298 12.460938 13.464844 C 12.78117 13.19539 13.295221 12.988281 14 12.988281 z M 11 19 A 1.0001 1.0001 0 0 0 10 20 L 10 39 A 1.0001 1.0001 0 0 0 11 40 L 17 40 A 1.0001 1.0001 0 0 0 18 39 L 18 33.134766 L 18 20 A 1.0001 1.0001 0 0 0 17 19 L 11 19 z M 20 19 A 1.0001 1.0001 0 0 0 19 20 L 19 39 A 1.0001 1.0001 0 0 0 20 40 L 26 40 A 1.0001 1.0001 0 0 0 27 39 L 27 29 C 27 28.170333 27.226394 27.345035 27.625 26.804688 C 28.023606 26.264339 28.526466 25.940057 29.482422 25.957031 C 30.468166 25.973981 30.989999 26.311669 31.384766 26.841797 C 31.779532 27.371924 32 28.166667 32 29 L 32 39 A 1.0001 1.0001 0 0 0 33 40 L 39 40 A 1.0001 1.0001 0 0 0 40 39 L 40 28.261719 C 40 25.300181 39.122788 22.95433 37.619141 21.367188 C 36.115493 19.780044 34.024172 19 31.8125 19 C 29.710483 19 28.110853 19.704889 27 20.423828 L 27 20 A 1.0001 1.0001 0 0 0 26 19 L 20 19 z M 12 21 L 16 21 L 16 33.134766 L 16 38 L 12 38 L 12 21 z M 21 21 L 25 21 L 25 22.560547 A 1.0001 1.0001 0 0 0 26.798828 23.162109 C 26.798828 23.162109 28.369194 21 31.8125 21 C 33.565828 21 35.069366 21.582581 36.167969 22.742188 C 37.266572 23.901794 38 25.688257 38 28.261719 L 38 38 L 34 38 L 34 29 C 34 27.833333 33.720468 26.627107 32.990234 25.646484 C 32.260001 24.665862 31.031834 23.983076 29.517578 23.957031 C 27.995534 23.930001 26.747519 24.626988 26.015625 25.619141 C 25.283731 26.611293 25 27.829667 25 29 L 25 38 L 21 38 L 21 21 z"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
+    </div>
+  </section>
+  <!-- Hero Section End -->
+  <!-- About Section Start -->
+  <section id="about" class="pt-36 pb-32 bg-slate-100  dark:bg-slate-800">
+    <div class="container">
+      <div class="flex flex-wrap">
+        <div class="w-full px-4 mb-10 lg:w-1/2">
+          <h4 data-aos="fade-up" data-aos-duration="1000" class="text-primary font-bold uppercase text-lg mb-3">
+            Tentang Saya
+          </h4>
+          <h2 data-aos="fade-up" data-aos-duration="1000"
+            class="font-bold dark:text-white text-dark text-3xl mb-5 max-w-md lg:text-4xl">
+            Bercita - cita Menjadi Programmer
+          </h2>
+          <p data-aos="fade-up" data-aos-duration="1000"
+            class="font-medium text-base dark:text-slate-200 text-secondary max-w-xl lg:text-lg">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos
+            possimus consequatur laboriosam molestiae earum? Repudiandae.
+          </p>
         </div>
-      </div>
-    </section>
-    <!-- About Section End -->
-    <!-- Portofolio Section Start -->
-    <section id="portofolio" class="pt-36 pb-16 bg-slate-200 dark:bg-slate-700">
-      <div class="container">
-        <div class="w-full">
-          <div class="max-w-xl mx-auto text-center m-16">
-            <h4 data-aos="zoom-in" data-aos-duration="1000" class="text-lg font-semibold text-primary uppercase mb-2">
-              Portofolio
-            </h4>
-            <h2 data-aos="fade-right" data-aos-duration="1000" class="font-bold text-3xl dark:text-white text-dark mb-4 sm:4xl lg:text-5xl">
-              Project Terbaru Saya
-            </h2>
-            <p data-aos="fade-left" data-aos-duration="1000" class="font-medium text-md text-secondary md:text-lg">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque
-              est magni accusantium ipsum ipsa totam molestiae animi non
-              deleniti repudiandae!
-            </p>
-          </div>
-        </div>
-        <div
-        
-          class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto"
-        >
-          <!-- sistem persediaan barang start-->
-          <div data-aos="fade-up" data-aos-duration="1000" class="mb-12 p-4 md:w-1/2">
-            <div class="rounded-lg shadow-md overflow-hiden">
-              <img
-              class="rounded-md shadow-md overflow-hiden"
-                src="./assets/portfolio/1.png"
-                alt="sistem persediaan barang"
-                width="w-full"
-              />
-            </div>
-            <h3 class=" dark:text-white font-semibold text-xl text-dark mt-5 mb-3">
-              Sistem Persediaan Barang
-            </h3>
-            <p class="font-medium text-secondary dark:text-slate-100">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-              cupiditate atque eveniet laudantium, vel aliquid!
-            </p>
-          </div>
-          <!-- sistem persediaan barang end -->
-          <!-- tourgide web start -->
-          <div data-aos="fade-up" data-aos-duration="1000" class="mb-12 p-4 md:w-1/2">
-            <div class="rounded-md shadow-md overflow-hiden">
-              <img
-              class="rounded-md shadow-md overflow-hiden"
-                src="./assets/portfolio/2.png"
-                alt="sistem persediaan barang"
-                width="w-full"
-              />
-            </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">
-              Website Tourgide
-            </h3>
-            <p class="font-medium text-secondary dark:text-slate-100">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-              cupiditate atque eveniet laudantium, vel aliquid!
-            </p>
-          </div>
-          <!-- Tourgide web end -->
-          <!-- sistem persediaan barang start-->
-          <div data-aos="fade-up" data-aos-duration="1000" class="mb-12 p-4 md:w-1/2">
-            <div class="rounded-md shadow-md overflow-hiden">
-              <img
-              class="rounded-md shadow-md overflow-hiden"
-                src="./assets/portfolio/1.png"
-                alt="sistem persediaan barang"
-                width="w-full"
-              />
-            </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">
-              Sistem Persediaan Barang
-            </h3>
-            <p class="font-medium text-secondary dark:text-slate-100">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-              cupiditate atque eveniet laudantium, vel aliquid!
-            </p>
-          </div>
-          <!-- sistem persediaan barang end -->
-          <!-- tourgide web start -->
-          <div data-aos="fade-up" data-aos-duration="1000" class="mb-12 p-4 md:w-1/2">
-            <div class="rounded-md shadow-md overflow-hiden">
-              <img
-              class="rounded-md shadow-md overflow-hiden"
-                src="./assets/portfolio/2.png"
-                alt="sistem persediaan barang"
-                width="w-full"
-              />
-            </div>
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">
-              Website Tourgide
-            </h3>
-            <p class="font-medium text-secondary dark:text-slate-100">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-              cupiditate atque eveniet laudantium, vel aliquid!
-            </p>
-          </div>
-          <!-- tourgide web end -->
-        </div>
-      </div>
-    </section>
-    <!-- Portofolio Section End -->
-    <!-- Client Section Start -->
-    <section id="clients" class="pt-36 pb-32 bg-slate-700 dark:bg-slate-500">
-      <div class="container">
-        <div class="w-full px-4">
-          <div class="max-w-xl mx-auto text-center m-16">
-            <h4  data-aos="zoom-in" data-aos-duration="1000" class="text-lg font-semibold text-primary uppercase mb-2">
-              Clients
-            </h4>
-            <h2 data-aos="fade-right" data-aos-duration="1000"
-              class="font-bold text-3xl mb-3 text-slate-800 sm:4xl lg:text-5xl"
-            >
-              Yang pernah bekerjasama
-            </h2>
-            <p data-aos="fade-left" data-aos-duration="1000" class="font-medium text-md text-secondary md:text-lg dark:md:text-white">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque
-              est magni accusantium ipsum ipsa totam molestiae animi non
-              deleniti repudiandae!
-            </p>
-          </div>
-        </div>
-        <div class="w-full px-4">
-          <div data-aos="flip-up" data-aos-duration="1000" class="flex flex-wrap item-center justify-center">
-            <a
-              href="#"
-              class="max-w-[120px] mx-4 py-4  grayscale opacity-60 trasition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
-            >
-              <img src="./assets/clients/Google_2015_logo.svg" alt="Google" />
+        <div class="w-full px-4 lg:w-1/2">
+          <h3 data-aos="fade-up" data-aos-duration="1000"
+            class="font-semibold text-2xl dark:text-white text-dark mb-4 lg:text-3xl lg:pt-10">
+            Mari Berteman
+          </h3>
+          <p data-aos="fade-up" data-aos-duration="1000"
+            class="font-medium text-base dark:text-slate-200 text-secondary mb-6 lg:text-lg">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt
+            cumque omnis, temporibus aperiam corporis officiis.
+          </p>
+          <div data-aos="fade-up" data-aos-duration="1000" class="flex items-center">
+            <!-- Youtube -->
+            <a href="#"
+              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white">
+              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
+                viewBox="0 0 50 50">
+                <title>Youtube</title>
+                <path
+                  d="M 44.898438 14.5 C 44.5 12.300781 42.601563 10.699219 40.398438 10.199219 C 37.101563 9.5 31 9 24.398438 9 C 17.800781 9 11.601563 9.5 8.300781 10.199219 C 6.101563 10.699219 4.199219 12.199219 3.800781 14.5 C 3.398438 17 3 20.5 3 25 C 3 29.5 3.398438 33 3.898438 35.5 C 4.300781 37.699219 6.199219 39.300781 8.398438 39.800781 C 11.898438 40.5 17.898438 41 24.5 41 C 31.101563 41 37.101563 40.5 40.601563 39.800781 C 42.800781 39.300781 44.699219 37.800781 45.101563 35.5 C 45.5 33 46 29.398438 46.101563 25 C 45.898438 20.5 45.398438 17 44.898438 14.5 Z M 19 32 L 19 18 L 31.199219 25 Z">
+                </path>
+              </svg>
             </a>
-            <a
-              href="#"
-              class="max-w-[120px] mx-4 py-4 grayscale opacity-60 trasition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
-            >
-              <img src="./assets/clients/Grab_Logo.svg" alt="Grab" />
+            <!-- Instagram -->
+            <a href="#"
+              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white">
+              <svg width="25" class="fill-current" height="25" role="img" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <title>Instagram</title>
+                <path
+                  d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077" />
+              </svg>
             </a>
-            <a
-              href="#"
-              class="max-w-[120px] mx-4 py-4 grayscale opacity-60 trasition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
-            >
-              <img
-                src="./assets/clients/Spotify_logo_with_text.svg"
-                alt="Spotify"
-              />
+            <!-- Twitter -->
+            <a href="#"
+              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white">
+              <svg width="20" class="fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <title>X</title>
+                <path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+              </svg>
             </a>
-            <a
-              href="#"
-              class="max-w-[120px] mx-4 py-4 grayscale opacity-60 trasition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8"
-            >
-              <img src="./assets/clients/Tokopedia.svg" alt="Tokopedia" />
+            <!-- GitHub -->
+            <a href="#"
+              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white">
+              <svg width="25" class="fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <title>GitHub</title>
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg>
+            </a>
+            <!-- Linked In -->
+            <a href="#"
+              class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white">
+              <svg width="25" class="fill-current" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
+                height="100" viewBox="0 0 50 50">
+                <title>LinkedIn</title>
+                <path
+                  d="M 9 4 C 6.2504839 4 4 6.2504839 4 9 L 4 41 C 4 43.749516 6.2504839 46 9 46 L 41 46 C 43.749516 46 46 43.749516 46 41 L 46 9 C 46 6.2504839 43.749516 4 41 4 L 9 4 z M 9 6 L 41 6 C 42.668484 6 44 7.3315161 44 9 L 44 41 C 44 42.668484 42.668484 44 41 44 L 9 44 C 7.3315161 44 6 42.668484 6 41 L 6 9 C 6 7.3315161 7.3315161 6 9 6 z M 14 11.011719 C 12.904779 11.011719 11.919219 11.339079 11.189453 11.953125 C 10.459687 12.567171 10.011719 13.484511 10.011719 14.466797 C 10.011719 16.333977 11.631285 17.789609 13.691406 17.933594 A 0.98809878 0.98809878 0 0 0 13.695312 17.935547 A 0.98809878 0.98809878 0 0 0 14 17.988281 C 16.27301 17.988281 17.988281 16.396083 17.988281 14.466797 A 0.98809878 0.98809878 0 0 0 17.986328 14.414062 C 17.884577 12.513831 16.190443 11.011719 14 11.011719 z M 14 12.988281 C 15.392231 12.988281 15.94197 13.610038 16.001953 14.492188 C 15.989803 15.348434 15.460091 16.011719 14 16.011719 C 12.614594 16.011719 11.988281 15.302225 11.988281 14.466797 C 11.988281 14.049083 12.140703 13.734298 12.460938 13.464844 C 12.78117 13.19539 13.295221 12.988281 14 12.988281 z M 11 19 A 1.0001 1.0001 0 0 0 10 20 L 10 39 A 1.0001 1.0001 0 0 0 11 40 L 17 40 A 1.0001 1.0001 0 0 0 18 39 L 18 33.134766 L 18 20 A 1.0001 1.0001 0 0 0 17 19 L 11 19 z M 20 19 A 1.0001 1.0001 0 0 0 19 20 L 19 39 A 1.0001 1.0001 0 0 0 20 40 L 26 40 A 1.0001 1.0001 0 0 0 27 39 L 27 29 C 27 28.170333 27.226394 27.345035 27.625 26.804688 C 28.023606 26.264339 28.526466 25.940057 29.482422 25.957031 C 30.468166 25.973981 30.989999 26.311669 31.384766 26.841797 C 31.779532 27.371924 32 28.166667 32 29 L 32 39 A 1.0001 1.0001 0 0 0 33 40 L 39 40 A 1.0001 1.0001 0 0 0 40 39 L 40 28.261719 C 40 25.300181 39.122788 22.95433 37.619141 21.367188 C 36.115493 19.780044 34.024172 19 31.8125 19 C 29.710483 19 28.110853 19.704889 27 20.423828 L 27 20 A 1.0001 1.0001 0 0 0 26 19 L 20 19 z M 12 21 L 16 21 L 16 33.134766 L 16 38 L 12 38 L 12 21 z M 21 21 L 25 21 L 25 22.560547 A 1.0001 1.0001 0 0 0 26.798828 23.162109 C 26.798828 23.162109 28.369194 21 31.8125 21 C 33.565828 21 35.069366 21.582581 36.167969 22.742188 C 37.266572 23.901794 38 25.688257 38 28.261719 L 38 38 L 34 38 L 34 29 C 34 27.833333 33.720468 26.627107 32.990234 25.646484 C 32.260001 24.665862 31.031834 23.983076 29.517578 23.957031 C 27.995534 23.930001 26.747519 24.626988 26.015625 25.619141 C 25.283731 26.611293 25 27.829667 25 29 L 25 38 L 21 38 L 21 21 z">
+                </path>
+              </svg>
             </a>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Client Section End -->
-    <!-- Blog Section Start -->
-    <section id="blog" class="pt-36 pb32 bg-slate-200  dark:bg-slate-700">
-      <div class="container">
-        <div class="w-full px-4">
-          <div class="max-w-xl mx-auto text-center m-16">
-            <h4 data-aos="zoom-in" data-aos-duration="1000" class="text-lg font-semibold text-primary uppercase mb-2">
-              blog saya
-            </h4>
-            <h2 data-aos="fade-right" data-aos-duration="1000" class="font-bold text-3xl text-dark mb-4 sm:4xl lg:text-5xl">
-              Artikel Terbaru
-            </h2>
-            <p data-aos="fade-left" data-aos-duration="1000" class="font-medium text-md dark:text-white text-secondary md:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repudiandae labore dolores sapiente eius!
-            </p>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap">
-          <div data-aos="fade-up" data-aos-duration="1000" class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="bg-white dark:bg-slate-600 rounded-xl shadow-lg overflow-hidden mb-10">
-              <img
-                src="https://media.istockphoto.com/id/2166408595/id/foto/group-asia-male-female-freelance-typing-write-prompt-ai-bot-it-app-smart-program-nomad-video.jpg?s=1024x1024&w=is&k=20&c=Lk60aFt0g6SHO8D98Oi0kllSpGkPS1o-tEqmTHhfCps="
-                alt="programming"
-                class="w-full"
-              />
-              <div class="py-8 px-4">
-                <h3>
-                  <a
-                    href="#"
-                    class="block font-semibold text-lg mb-3 dark:text-white text-dark hover:text-primary truncate"
-                    >Programming di era AI: Tantangan atau Keuntungan?</a
-                  >
-                </h3>
-                <p class="font-normal text-base dark:text-white text-secondary mb-6">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Ipsum, nostrum.
-                </p>
-                <a
-                  href="#"
-                  class="font-normal text-base text-slate-100 py-2 px-4 bg-primary rounded-md hover:opacity-80"
-                  >Baca Selengkapnya</a
-                >
-              </div>
-            </div>
-          </div>
-          <div data-aos="fade-up" data-aos-duration="1000" class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="bg-white dark:bg-slate-600 rounded-xl shadow-lg overflow-hidden mb-10">
-              <img
-                src="https://media.istockphoto.com/id/1569540490/id/foto/lengan-robot-presisi-tinggi-tingkat-lanjut-di-dalam-pabrik-elektronik-cerah-industri-produksi.jpg?s=1024x1024&w=is&k=20&c=GPrejtN4ytbwXSRcPgbRaYInL9jkVOAtGWmrejn-h8Q="
-                alt="Robotic Industry"
-                class="w-full"
-              />
-              <div class="py-8 px-4">
-                <h3>
-                  <a
-                    href="#"
-                    class="block font-semibold text-lg mb-3 dark:text-white text-dark hover:text-primary truncate"
-                    >Robotika dan Masa Depan Industri</a
-                  >
-                </h3>
-                <p class="font-normal text-base dark:text-white text-secondary mb-6">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Ipsum, nostrum.
-                </p>
-                <a
-                  href="#"
-                  class="font-normal text-base text-slate-100 py-2 px-4 bg-primary rounded-md hover:opacity-80"
-                  >Baca Selengkapnya</a
-                >
-              </div>
-            </div>
-          </div>
-          <div data-aos="fade-up" data-aos-duration="1000" class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="bg-white dark:bg-slate-600 rounded-xl shadow-lg overflow-hidden mb-10">
-              <img
-                src="https://media.istockphoto.com/id/1407983911/id/foto/diagram-forex-dan-garis-kenaikan-pasar-saham-dengan-angka.jpg?s=1024x1024&w=is&k=20&c=_3Im3w4rUntSef_pKMu4XZZzTc2RTHopedIFnZ462pU="
-                alt="programming"
-                class="w-full"
-              />
-              <div class="py-8 px-4">
-                <h3>
-                  <a
-                    href="#"
-                    class="block font-semibold text-lg mb-3 dark:text-white text-dark hover:text-primary truncate"
-                    >Korelasi AI dan Big Data</a
-                  >
-                </h3>
-                <p class="font-normal text-base dark:text-white text-secondary mb-6">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing.
-                </p>
-                <a
-                  href="#"
-                  class="font-normal text-base text-slate-100 py-2 px-4 bg-primary rounded-md hover:opacity-80"
-                  >Baca Selengkapnya</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Blog Section End -->
-    <!-- Contact Section Start -->
-    <section id="contact" class="pt-36 pb32 bg-slate-100  dark:bg-slate-800">
-      <div class="w-full px-4">
+    </div>
+  </section>
+  <!-- About Section End -->
+  <!-- Portofolio Section Start -->
+  <section id="portofolio" class="pt-36 pb-16 bg-slate-200 overflow-x-hidden dark:bg-slate-700">
+    <div class="container">
+      <div class="w-full">
         <div class="max-w-xl mx-auto text-center m-16">
           <h4 data-aos="zoom-in" data-aos-duration="1000" class="text-lg font-semibold text-primary uppercase mb-2">
-            Contact
+            Portofolio
           </h4>
-          <h2 data-aos="fade-right" data-aos-duration="1000" class="font-bold text-3xl dark:text-white text-dark mb-4 sm:4xl lg:text-5xl">
-            Hubungi Saya
+          <h2 data-aos="fade-right" data-aos-duration="1000"
+            class="font-bold text-3xl dark:text-white text-dark mb-4 sm:4xl lg:text-5xl">
+            Project Terbaru Saya
           </h2>
-          <p data-aos="fade-left" data-aos-duration="1000" class="font-medium text-md dark:text-slate-100 text-secondary md:text-lg">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor,
-            temporibus.
+          <p data-aos="fade-left" data-aos-duration="1000" class="font-medium text-md text-secondary md:text-lg">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque
+            est magni accusantium ipsum ipsa totam molestiae animi non
+            deleniti repudiandae!
           </p>
         </div>
       </div>
-      <div data-aos="fade-up" data-aos-duration="1000" class="w-full lg:w-2/3 lg:mx-auto">
-        <form action="">
-          <div class="w-full px-4 mb-8">
-            <label for="name" class="font-base font-bold text-primary mb-1"
-            >Nama</label
-            >
-          <input
-            type="text"
-            id="name"
-            class="w-full p-3 bg-slate-200 text-base text-primary rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
-          />
+      <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+        <!-- sistem persediaan barang start-->
+        <div data-aos="fade-up" data-aos-duration="1000" class="mb-12 p-4 md:w-1/2">
+          <div class="rounded-lg shadow-md overflow-hiden">
+            <img class="rounded-md shadow-md overflow-hiden" src="./assets/portfolio/1.png"
+              alt="sistem persediaan barang" width="w-full" />
+          </div>
+          <h3 class=" dark:text-white font-semibold text-xl text-dark mt-5 mb-3">
+            Sistem Persediaan Barang
+          </h3>
+          <p class="font-medium text-secondary dark:text-slate-100">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+            cupiditate atque eveniet laudantium, vel aliquid!
+          </p>
+        </div>
+        <!-- sistem persediaan barang end -->
+        <!-- tourgide web start -->
+        <div data-aos="fade-up" data-aos-duration="1000" class="mb-12 p-4 md:w-1/2">
+          <div class="rounded-md shadow-md overflow-hiden">
+            <img class="rounded-md shadow-md overflow-hiden" src="./assets/portfolio/2.png"
+              alt="sistem persediaan barang" width="w-full" />
+          </div>
+          <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">
+            Website Tourgide
+          </h3>
+          <p class="font-medium text-secondary dark:text-slate-100">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+            cupiditate atque eveniet laudantium, vel aliquid!
+          </p>
+        </div>
+        <!-- Tourgide web end -->
+        <!-- sistem persediaan barang start-->
+        <div data-aos="fade-up" data-aos-duration="1000" class="mb-12 p-4 md:w-1/2">
+          <div class="rounded-md shadow-md overflow-hiden">
+            <img class="rounded-md shadow-md overflow-hiden" src="./assets/portfolio/1.png"
+              alt="sistem persediaan barang" width="w-full" />
+          </div>
+          <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">
+            Sistem Persediaan Barang
+          </h3>
+          <p class="font-medium text-secondary dark:text-slate-100">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+            cupiditate atque eveniet laudantium, vel aliquid!
+          </p>
+        </div>
+        <!-- sistem persediaan barang end -->
+        <!-- tourgide web start -->
+        <div data-aos="fade-up" data-aos-duration="1000" class="mb-12 p-4 md:w-1/2">
+          <div class="rounded-md shadow-md overflow-hiden">
+            <img class="rounded-md shadow-md overflow-hiden" src="./assets/portfolio/2.png"
+              alt="sistem persediaan barang" width="w-full" />
+          </div>
+          <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">
+            Website Tourgide
+          </h3>
+          <p class="font-medium text-secondary dark:text-slate-100">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+            cupiditate atque eveniet laudantium, vel aliquid!
+          </p>
+        </div>
+        <!-- tourgide web end -->
+      </div>
+    </div>
+  </section>
+  <!-- Portofolio Section End -->
+  <!-- Client Section Start -->
+  <section id="clients" class="pt-36 pb-32 bg-slate-700 overflow-x-hidden dark:bg-slate-500">
+    <div class="container">
+      <div class="w-full px-4">
+        <div class="max-w-xl mx-auto text-center m-16">
+          <h4 data-aos="zoom-in" data-aos-duration="1000" class="text-lg font-semibold text-primary uppercase mb-2">
+            Clients
+          </h4>
+          <h2 data-aos="fade-right" data-aos-duration="1000"
+            class="font-bold text-3xl mb-3 text-slate-800 sm:4xl lg:text-5xl">
+            Yang pernah bekerjasama
+          </h2>
+          <p data-aos="fade-left" data-aos-duration="1000"
+            class="font-medium text-md text-secondary md:text-lg dark:md:text-white">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque
+            est magni accusantium ipsum ipsa totam molestiae animi non
+            deleniti repudiandae!
+          </p>
+        </div>
+      </div>
+      <div class="w-full px-4">
+        <div data-aos="flip-up" data-aos-duration="1000" class="flex flex-wrap items-center justify-center">
+          <a href="#"
+            class="max-w-[120px] mx-4 py-4  grayscale opacity-60 trasition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
+            <img src="./assets/clients/Google_2015_logo.svg" alt="Google" />
+          </a>
+          <a href="#"
+            class="max-w-[120px] mx-4 py-4 grayscale opacity-60 trasition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
+            <img src="./assets/clients/Grab_Logo.svg" alt="Grab" />
+          </a>
+          <a href="#"
+            class="max-w-[120px] mx-4 py-4 grayscale opacity-60 trasition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
+            <img src="./assets/clients/Spotify_logo_with_text.svg" alt="Spotify" />
+          </a>
+          <a href="#"
+            class="max-w-[120px] mx-4 py-4 grayscale opacity-60 trasition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
+            <img src="./assets/clients/Tokopedia.svg" alt="Tokopedia" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Client Section End -->
+  <!-- Blog Section Start -->
+  <section id="blog" class="pt-36 pb32 bg-slate-200 overflow-x-hidden dark:bg-slate-700">
+    <div class="container">
+      <div class="w-full px-4">
+        <div class="max-w-xl mx-auto text-center m-16">
+          <h4 data-aos="zoom-in" data-aos-duration="1000" class="text-lg font-semibold text-primary uppercase mb-2">
+            blog saya
+          </h4>
+          <h2 data-aos="fade-right" data-aos-duration="1000"
+            class="font-bold text-3xl text-dark mb-4 sm:4xl lg:text-5xl">
+            Artikel Terbaru
+          </h2>
+          <p data-aos="fade-left" data-aos-duration="1000"
+            class="font-medium text-md dark:text-white text-secondary md:text-lg">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Repudiandae labore dolores sapiente eius!
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap">
+        <div data-aos="fade-up" data-aos-duration="1000" class="w-full px-4 lg:w-1/2 xl:w-1/3">
+          <div class="bg-white dark:bg-slate-600 rounded-xl shadow-lg overflow-hidden mb-10">
+            <img
+              src="https://media.istockphoto.com/id/2166408595/id/foto/group-asia-male-female-freelance-typing-write-prompt-ai-bot-it-app-smart-program-nomad-video.jpg?s=1024x1024&w=is&k=20&c=Lk60aFt0g6SHO8D98Oi0kllSpGkPS1o-tEqmTHhfCps="
+              alt="programming" class="w-full" />
+            <div class="py-8 px-4">
+              <h3>
+                <a href="#"
+                  class="block font-semibold text-lg mb-3 dark:text-white text-dark hover:text-primary truncate">Programming
+                  di era AI: Tantangan atau Keuntungan?</a>
+              </h3>
+              <p class="font-normal text-base dark:text-white text-secondary mb-6">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ipsum, nostrum.
+              </p>
+              <a href="#"
+                class="font-normal text-base text-slate-100 py-2 px-4 bg-primary rounded-md hover:opacity-80">Baca
+                Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1000" class="w-full px-4 lg:w-1/2 xl:w-1/3">
+          <div class="bg-white dark:bg-slate-600 rounded-xl shadow-lg overflow-hidden mb-10">
+            <img
+              src="https://media.istockphoto.com/id/1569540490/id/foto/lengan-robot-presisi-tinggi-tingkat-lanjut-di-dalam-pabrik-elektronik-cerah-industri-produksi.jpg?s=1024x1024&w=is&k=20&c=GPrejtN4ytbwXSRcPgbRaYInL9jkVOAtGWmrejn-h8Q="
+              alt="Robotic Industry" class="w-full" />
+            <div class="py-8 px-4">
+              <h3>
+                <a href="#"
+                  class="block font-semibold text-lg mb-3 dark:text-white text-dark hover:text-primary truncate">Robotika
+                  dan Masa Depan Industri</a>
+              </h3>
+              <p class="font-normal text-base dark:text-white text-secondary mb-6">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ipsum, nostrum.
+              </p>
+              <a href="#"
+                class="font-normal text-base text-slate-100 py-2 px-4 bg-primary rounded-md hover:opacity-80">Baca
+                Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1000" class="w-full px-4 lg:w-1/2 xl:w-1/3">
+          <div class="bg-white dark:bg-slate-600 rounded-xl shadow-lg overflow-hidden mb-10">
+            <img
+              src="https://media.istockphoto.com/id/1407983911/id/foto/diagram-forex-dan-garis-kenaikan-pasar-saham-dengan-angka.jpg?s=1024x1024&w=is&k=20&c=_3Im3w4rUntSef_pKMu4XZZzTc2RTHopedIFnZ462pU="
+              alt="programming" class="w-full" />
+            <div class="py-8 px-4">
+              <h3>
+                <a href="#"
+                  class="block font-semibold text-lg mb-3 dark:text-white text-dark hover:text-primary truncate">Korelasi
+                  AI dan Big Data</a>
+              </h3>
+              <p class="font-normal text-base dark:text-white text-secondary mb-6">
+                Lorem ipsum dolor sit amet, consectetur adipisicing.
+              </p>
+              <a href="#"
+                class="font-normal text-base text-slate-100 py-2 px-4 bg-primary rounded-md hover:opacity-80">Baca
+                Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Blog Section End -->
+  <!-- Contact Section Start -->
+  <section id="contact" class="pt-36 pb32 overflow-x-hidden bg-slate-100  dark:bg-slate-800">
+    <div class="w-full px-4">
+      <div class="max-w-xl mx-auto text-center m-16">
+        <h4 data-aos="zoom-in" data-aos-duration="1000" class="text-lg font-semibold text-primary uppercase mb-2">
+          Contact
+        </h4>
+        <h2 data-aos="fade-right" data-aos-duration="1000"
+          class="font-bold text-3xl dark:text-white text-dark mb-4 sm:4xl lg:text-5xl">
+          Hubungi Saya
+        </h2>
+        <p data-aos="fade-left" data-aos-duration="1000"
+          class="font-medium text-md dark:text-slate-100 text-secondary md:text-lg">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor,
+          temporibus.
+        </p>
+      </div>
+    </div>
+    <div data-aos="fade-up" data-aos-duration="1000" class="w-full lg:w-2/3 lg:mx-auto">
+      <form action="">
+        <div class="w-full px-4 mb-8">
+          <label for="name" class="font-base font-bold text-primary mb-1">Nama</label>
+          <input type="text" id="name"
+            class="w-full p-3 bg-slate-200 text-base text-primary rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
         </div>
         <div class="w-full px-4 mb-8">
-          <label for="Email" class="font-base font-bold text-primary mb-1"
-            >Email</label
-          >
-          <input
-          type="text"
-          id="email"
-            class="w-full p-3 bg-slate-200 text-base text-primary rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
-          />
+          <label for="Email" class="font-base font-bold text-primary mb-1">Email</label>
+          <input type="text" id="email"
+            class="w-full p-3 bg-slate-200 text-base text-primary rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
         </div>
         <div class="w-full px-4 mb-8">
-          <label for="message" class="font-base font-bold text-primary mb-1"
-          >Pesan</label
-          >
-          <textarea
-            type="text"
-            id="name"
-            class="w-full p-3 bg-slate-200 text-base text-primary rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
-          ></textarea>
+          <label for="message" class="font-base font-bold text-primary mb-1">Pesan</label>
+          <textarea type="text" id="name"
+            class="w-full p-3 bg-slate-200 text-base text-primary rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"></textarea>
         </div>
         <div class="w-full px-4">
           <button
-          class="text-base mb-5 font-bold dark:text-dark text-slate-100 bg-primary py-3 px-8 w-full rounded-md hover:opacity-80 hover:shadow-lg transition duration-500"
-          >
+            class="text-base mb-5 font-bold dark:text-dark text-slate-100 bg-primary py-3 px-8 w-full rounded-md hover:opacity-80 hover:shadow-lg transition duration-500">
             Kirim
           </button>
         </div>
-      </div>
-      </form>
-    </section>
-    <!-- Contact Section End -->
-     <!-- Footer Start -->
-      <footer  class="pt-24 pb-12 bg-dark">
-        <div class="container">
-          <div  data-aos="fade-up" data-aos-duration="1000" class="flex flex-wrap">
-            <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
-              <h2 class="font-bold text-4xl text-white mb-5">Muchtar Rohman</h2>
-              <h3 class="font-bold text-2xl mb-2">Hubungi Kami</h3>
-              <p>muchtarrohmanjy12@outlook.com</p>
-              <p>Jl. Angkasa Raya No.23, Kebayoran Lama</p>
-              <p>Jakarta Selatan</p>
-            </div>
-
-            <div data-aos="fade-up" data-aos-duration="1000" class="w-full px-4 mb-12 md:w-1/3">
-              <h3 class="font-semibold text-xl text-white mb-5">
-                Tulisan :
-              </h3>
-              <ul class="text-slate-300">
-                <li>
-                  <a href="#" class="inline-block text-base mb-3 hover:text-primary">Programming</a>
-                </li>
-                <li>
-                  <a href="#" class="inline-block text-base mb-3 hover:text-primary">Robotics</a>
-                </li>
-                <li>
-                  <a href="#" class="inline-block text-base mb-3 hover:text-primary">Big Data</a>
-                </li>
-              </ul>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="1000" class="w-full px-4 mb-12 md:w-1/3">
-              <h3 class="font-semibold text-xl text-white mb-5">
-                Tautan :
-              </h3>
-              <ul data-aos="fade-up" data-aos-duration="1000" class="text-slate-300">
-                <li>
-                  <a href="#home" class="inline-block text-base mb-3 hover:text-primary">Beranda</a>
-                </li>
-                <li>
-                  <a href="#about" class="inline-block text-base mb-3 hover:text-primary">Tentang Saya</a>
-                </li>
-                <li>
-                  <a href="#portofolio" class="inline-block text-base mb-3 hover:text-primary">Portofolio</a>
-                </li>
-                <li>
-                  <a href="#clients" class="inline-block text-base mb-3 hover:text-primary">Klien</a>
-                </li>
-                <li>
-                  <a href="#contact" class="inline-block text-base mb-3 hover:text-primary">Hubungi Saya</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="w-full pt-10 border-t border-slate-700">
-            <div  class="flex item-center justify-center mb-5">
-              <!-- Youtube -->
-              <a
-                href="#"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white"
-              >
-                <svg
-                  class="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  width="30"
-                  height="30"
-                  viewBox="0 0 50 50"
-                >
-                  <title>Youtube</title>
-                  <path
-                    d="M 44.898438 14.5 C 44.5 12.300781 42.601563 10.699219 40.398438 10.199219 C 37.101563 9.5 31 9 24.398438 9 C 17.800781 9 11.601563 9.5 8.300781 10.199219 C 6.101563 10.699219 4.199219 12.199219 3.800781 14.5 C 3.398438 17 3 20.5 3 25 C 3 29.5 3.398438 33 3.898438 35.5 C 4.300781 37.699219 6.199219 39.300781 8.398438 39.800781 C 11.898438 40.5 17.898438 41 24.5 41 C 31.101563 41 37.101563 40.5 40.601563 39.800781 C 42.800781 39.300781 44.699219 37.800781 45.101563 35.5 C 45.5 33 46 29.398438 46.101563 25 C 45.898438 20.5 45.398438 17 44.898438 14.5 Z M 19 32 L 19 18 L 31.199219 25 Z"
-                  ></path>
-                </svg>
-              </a>
-              <!-- Instagram -->
-              <a
-                href="#"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white"
-              >
-                <svg
-                  width="25"
-                  class="fill-current"
-                  height="25"
-                  role="img"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Instagram</title>
-                  <path
-                    d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"
-                  />
-                </svg>
-              </a>
-              <!-- Twitter -->
-              <a
-                href="#"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white"
-              >
-                <svg
-                  width="20"
-                  class="fill-current"
-                  role="img"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>X</title>
-                  <path
-                    d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
-                  />
-                </svg>
-              </a>
-              <!-- GitHub -->
-              <a
-                href="#"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white"
-              >
-                <svg
-                  width="25"
-                  class="fill-current"
-                  role="img"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>GitHub</title>
-                  <path
-                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-                  />
-                </svg>
-              </a>
-              <!-- Linked In -->
-              <a
-                href="#"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white"
-              >
-                <svg
-                  width="25"
-                  class="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  width="100"
-                  height="100"
-                  viewBox="0 0 50 50"
-                >
-                  <title>LinkedIn</title>
-                  <path
-                    d="M 9 4 C 6.2504839 4 4 6.2504839 4 9 L 4 41 C 4 43.749516 6.2504839 46 9 46 L 41 46 C 43.749516 46 46 43.749516 46 41 L 46 9 C 46 6.2504839 43.749516 4 41 4 L 9 4 z M 9 6 L 41 6 C 42.668484 6 44 7.3315161 44 9 L 44 41 C 44 42.668484 42.668484 44 41 44 L 9 44 C 7.3315161 44 6 42.668484 6 41 L 6 9 C 6 7.3315161 7.3315161 6 9 6 z M 14 11.011719 C 12.904779 11.011719 11.919219 11.339079 11.189453 11.953125 C 10.459687 12.567171 10.011719 13.484511 10.011719 14.466797 C 10.011719 16.333977 11.631285 17.789609 13.691406 17.933594 A 0.98809878 0.98809878 0 0 0 13.695312 17.935547 A 0.98809878 0.98809878 0 0 0 14 17.988281 C 16.27301 17.988281 17.988281 16.396083 17.988281 14.466797 A 0.98809878 0.98809878 0 0 0 17.986328 14.414062 C 17.884577 12.513831 16.190443 11.011719 14 11.011719 z M 14 12.988281 C 15.392231 12.988281 15.94197 13.610038 16.001953 14.492188 C 15.989803 15.348434 15.460091 16.011719 14 16.011719 C 12.614594 16.011719 11.988281 15.302225 11.988281 14.466797 C 11.988281 14.049083 12.140703 13.734298 12.460938 13.464844 C 12.78117 13.19539 13.295221 12.988281 14 12.988281 z M 11 19 A 1.0001 1.0001 0 0 0 10 20 L 10 39 A 1.0001 1.0001 0 0 0 11 40 L 17 40 A 1.0001 1.0001 0 0 0 18 39 L 18 33.134766 L 18 20 A 1.0001 1.0001 0 0 0 17 19 L 11 19 z M 20 19 A 1.0001 1.0001 0 0 0 19 20 L 19 39 A 1.0001 1.0001 0 0 0 20 40 L 26 40 A 1.0001 1.0001 0 0 0 27 39 L 27 29 C 27 28.170333 27.226394 27.345035 27.625 26.804688 C 28.023606 26.264339 28.526466 25.940057 29.482422 25.957031 C 30.468166 25.973981 30.989999 26.311669 31.384766 26.841797 C 31.779532 27.371924 32 28.166667 32 29 L 32 39 A 1.0001 1.0001 0 0 0 33 40 L 39 40 A 1.0001 1.0001 0 0 0 40 39 L 40 28.261719 C 40 25.300181 39.122788 22.95433 37.619141 21.367188 C 36.115493 19.780044 34.024172 19 31.8125 19 C 29.710483 19 28.110853 19.704889 27 20.423828 L 27 20 A 1.0001 1.0001 0 0 0 26 19 L 20 19 z M 12 21 L 16 21 L 16 33.134766 L 16 38 L 12 38 L 12 21 z M 21 21 L 25 21 L 25 22.560547 A 1.0001 1.0001 0 0 0 26.798828 23.162109 C 26.798828 23.162109 28.369194 21 31.8125 21 C 33.565828 21 35.069366 21.582581 36.167969 22.742188 C 37.266572 23.901794 38 25.688257 38 28.261719 L 38 38 L 34 38 L 34 29 C 34 27.833333 33.720468 26.627107 32.990234 25.646484 C 32.260001 24.665862 31.031834 23.983076 29.517578 23.957031 C 27.995534 23.930001 26.747519 24.626988 26.015625 25.619141 C 25.283731 26.611293 25 27.829667 25 29 L 25 38 L 21 38 L 21 21 z"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-            <p class="font-medium text-xs text-slate-500 text-center">Dibuat dengan <span class="text-red-500">❤️</span>, oleh <a href="https://www.instagram.com/thankuvery_much?igsh=dmE1Z3UwMzd3bmk=" class="text-violet-500" target="_blank">Muchtar Rohman</a>. menggunakan <a href="https://v3.tailwindcss.com/" class="text-sky-500" target="_blank">Tailwind CSS</a> </p>
-          </div>
+    </div>
+    </form>
+  </section>
+  <!-- Contact Section End -->
+  <!-- Footer Start -->
+  <footer class="pt-24 pb-12  bg-dark">
+    <div class="container">
+      <div data-aos="fade-up" data-aos-duration="1000" class="flex flex-wrap">
+        <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
+          <h2 class="font-bold text-4xl text-white mb-5">Muchtar Rohman</h2>
+          <h3 class="font-bold text-2xl mb-2">Hubungi Kami</h3>
+          <p>muchtarrohmanjy12@outlook.com</p>
+          <p>Jl. Angkasa Raya No.23, Kebayoran Lama</p>
+          <p>Jakarta Selatan</p>
         </div>
-      </footer>
-      <!-- Footer End -->
-       <!-- Back to top start -->
-        <a href="#home" id="to-top"  class=" fixed bottom-4 right-4 justify-center items-center z-[9999] hidden h-14 w-14 bg-primary rounded-full p-4 hover:animate-bounce">
-          <span class="block w-5 h-5 border-t-2 border-l-2 rotate-45 mt-2">
 
-          </span>
-        </a>
-       <!-- Back to top end -->
-    <script src="./src/script.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({ once: false });
-    </script>
-  </body>
+        <div data-aos="fade-up" data-aos-duration="1000" class="w-full px-4 mb-12 md:w-1/3">
+          <h3 class="font-semibold text-xl text-white mb-5">
+            Tulisan :
+          </h3>
+          <ul class="text-slate-300">
+            <li>
+              <a href="#" class="inline-block text-base mb-3 hover:text-primary">Programming</a>
+            </li>
+            <li>
+              <a href="#" class="inline-block text-base mb-3 hover:text-primary">Robotics</a>
+            </li>
+            <li>
+              <a href="#" class="inline-block text-base mb-3 hover:text-primary">Big Data</a>
+            </li>
+          </ul>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1000" class="w-full px-4 mb-12 md:w-1/3">
+          <h3 class="font-semibold text-xl text-white mb-5">
+            Tautan :
+          </h3>
+          <ul data-aos="fade-up" data-aos-duration="1000" class="text-slate-300">
+            <li>
+              <a href="#home" class="inline-block text-base mb-3 hover:text-primary">Beranda</a>
+            </li>
+            <li>
+              <a href="#about" class="inline-block text-base mb-3 hover:text-primary">Tentang Saya</a>
+            </li>
+            <li>
+              <a href="#portofolio" class="inline-block text-base mb-3 hover:text-primary">Portofolio</a>
+            </li>
+            <li>
+              <a href="#clients" class="inline-block text-base mb-3 hover:text-primary">Klien</a>
+            </li>
+            <li>
+              <a href="#contact" class="inline-block text-base mb-3 hover:text-primary">Hubungi Saya</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="w-full pt-10 border-t border-slate-700">
+        <div class="flex items-center justify-center mb-5">
+          <!-- Youtube -->
+          <a href="#"
+            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white">
+            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
+              viewBox="0 0 50 50">
+              <title>Youtube</title>
+              <path
+                d="M 44.898438 14.5 C 44.5 12.300781 42.601563 10.699219 40.398438 10.199219 C 37.101563 9.5 31 9 24.398438 9 C 17.800781 9 11.601563 9.5 8.300781 10.199219 C 6.101563 10.699219 4.199219 12.199219 3.800781 14.5 C 3.398438 17 3 20.5 3 25 C 3 29.5 3.398438 33 3.898438 35.5 C 4.300781 37.699219 6.199219 39.300781 8.398438 39.800781 C 11.898438 40.5 17.898438 41 24.5 41 C 31.101563 41 37.101563 40.5 40.601563 39.800781 C 42.800781 39.300781 44.699219 37.800781 45.101563 35.5 C 45.5 33 46 29.398438 46.101563 25 C 45.898438 20.5 45.398438 17 44.898438 14.5 Z M 19 32 L 19 18 L 31.199219 25 Z">
+              </path>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#"
+            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white">
+            <svg width="25" class="fill-current" height="25" role="img" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <title>Instagram</title>
+              <path
+                d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077" />
+            </svg>
+          </a>
+          <!-- Twitter -->
+          <a href="#"
+            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white">
+            <svg width="20" class="fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <title>X</title>
+              <path
+                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+            </svg>
+          </a>
+          <!-- GitHub -->
+          <a href="#"
+            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white">
+            <svg width="25" class="fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <title>GitHub</title>
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+          </a>
+          <!-- Linked In -->
+          <a href="#"
+            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border text-slate-300 border-slate-300 hover:bg-primary hover:border-primary hover:text-white">
+            <svg width="25" class="fill-current" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
+              height="100" viewBox="0 0 50 50">
+              <title>LinkedIn</title>
+              <path
+                d="M 9 4 C 6.2504839 4 4 6.2504839 4 9 L 4 41 C 4 43.749516 6.2504839 46 9 46 L 41 46 C 43.749516 46 46 43.749516 46 41 L 46 9 C 46 6.2504839 43.749516 4 41 4 L 9 4 z M 9 6 L 41 6 C 42.668484 6 44 7.3315161 44 9 L 44 41 C 44 42.668484 42.668484 44 41 44 L 9 44 C 7.3315161 44 6 42.668484 6 41 L 6 9 C 6 7.3315161 7.3315161 6 9 6 z M 14 11.011719 C 12.904779 11.011719 11.919219 11.339079 11.189453 11.953125 C 10.459687 12.567171 10.011719 13.484511 10.011719 14.466797 C 10.011719 16.333977 11.631285 17.789609 13.691406 17.933594 A 0.98809878 0.98809878 0 0 0 13.695312 17.935547 A 0.98809878 0.98809878 0 0 0 14 17.988281 C 16.27301 17.988281 17.988281 16.396083 17.988281 14.466797 A 0.98809878 0.98809878 0 0 0 17.986328 14.414062 C 17.884577 12.513831 16.190443 11.011719 14 11.011719 z M 14 12.988281 C 15.392231 12.988281 15.94197 13.610038 16.001953 14.492188 C 15.989803 15.348434 15.460091 16.011719 14 16.011719 C 12.614594 16.011719 11.988281 15.302225 11.988281 14.466797 C 11.988281 14.049083 12.140703 13.734298 12.460938 13.464844 C 12.78117 13.19539 13.295221 12.988281 14 12.988281 z M 11 19 A 1.0001 1.0001 0 0 0 10 20 L 10 39 A 1.0001 1.0001 0 0 0 11 40 L 17 40 A 1.0001 1.0001 0 0 0 18 39 L 18 33.134766 L 18 20 A 1.0001 1.0001 0 0 0 17 19 L 11 19 z M 20 19 A 1.0001 1.0001 0 0 0 19 20 L 19 39 A 1.0001 1.0001 0 0 0 20 40 L 26 40 A 1.0001 1.0001 0 0 0 27 39 L 27 29 C 27 28.170333 27.226394 27.345035 27.625 26.804688 C 28.023606 26.264339 28.526466 25.940057 29.482422 25.957031 C 30.468166 25.973981 30.989999 26.311669 31.384766 26.841797 C 31.779532 27.371924 32 28.166667 32 29 L 32 39 A 1.0001 1.0001 0 0 0 33 40 L 39 40 A 1.0001 1.0001 0 0 0 40 39 L 40 28.261719 C 40 25.300181 39.122788 22.95433 37.619141 21.367188 C 36.115493 19.780044 34.024172 19 31.8125 19 C 29.710483 19 28.110853 19.704889 27 20.423828 L 27 20 A 1.0001 1.0001 0 0 0 26 19 L 20 19 z M 12 21 L 16 21 L 16 33.134766 L 16 38 L 12 38 L 12 21 z M 21 21 L 25 21 L 25 22.560547 A 1.0001 1.0001 0 0 0 26.798828 23.162109 C 26.798828 23.162109 28.369194 21 31.8125 21 C 33.565828 21 35.069366 21.582581 36.167969 22.742188 C 37.266572 23.901794 38 25.688257 38 28.261719 L 38 38 L 34 38 L 34 29 C 34 27.833333 33.720468 26.627107 32.990234 25.646484 C 32.260001 24.665862 31.031834 23.983076 29.517578 23.957031 C 27.995534 23.930001 26.747519 24.626988 26.015625 25.619141 C 25.283731 26.611293 25 27.829667 25 29 L 25 38 L 21 38 L 21 21 z">
+              </path>
+            </svg>
+          </a>
+        </div>
+        <p class="font-medium text-xs text-slate-500 text-center">Dibuat dengan <span class="text-red-500">❤️</span>,
+          oleh <a href="https://www.instagram.com/thankuvery_much?igsh=dmE1Z3UwMzd3bmk=" class="text-violet-500"
+            target="_blank">Muchtar Rohman</a>. menggunakan <a href="https://v3.tailwindcss.com/" class="text-sky-500"
+            target="_blank">Tailwind CSS</a> </p>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+  <!-- Back to top start -->
+  <section class="">
+    <div class="container"><a href="#home" id="to-top"
+        class=" fixed bottom-4 right-4 justify-center items-center z-[10] hidden h-14 w-14 bg-primary rounded-full p-4 hover:animate-pulse">
+        <span class="block w-5 h-5 border-t-2 border-l-2 rotate-45 mt-2">
+
+        </span>
+      </a></div>
+  </section>
+  <!-- Back to top end -->
+  <script src="./src/script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: false });
+  </script>
+</body>
+
 </html>

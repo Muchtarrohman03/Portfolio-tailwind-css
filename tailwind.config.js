@@ -3,9 +3,18 @@ module.exports = {
   content: ["index.html"],
   darkMode: "class",
   theme: {
+    screens: {
+      sm: "340px",
+      md: "540px",
+      lg: "768px",
+      xl: "1180px",
+    },
     container: {
       center: true,
-      padding: "16px",
+      padding: {
+        DEFAULT: "12px",
+        md: "32px",
+      },
     },
     extend: {
       colors: {
